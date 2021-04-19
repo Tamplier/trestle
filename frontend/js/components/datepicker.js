@@ -55,7 +55,8 @@ init(function (root) {
     allowInput: true,
     altInput: true,
     altFormat: i18n['admin.datepicker.formats.datetime'] || 'm/d/Y h:i K',
-    onReady: setupDatePicker
+    onReady: setupDatePicker,
+    plugins: [new confirmDatePlugin({theme: "dark", showAlways: true, confirmIcon: "<i class='fa fa-check'></i>", confirmText: ""})]
   })
 
   $(root).find('input[type="time"][data-picker="true"]').flatpickr({

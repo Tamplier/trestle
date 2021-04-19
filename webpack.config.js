@@ -81,6 +81,13 @@ module.exports = {
           globOptions: {
             ignore: ['**/index.js']
           }
+        },
+        {
+          from: 'node_modules/flatpickr/dist/plugins/confirmDate/*.js',
+          to: 'flatpickr/confirmDate/[name].[ext]',
+          transform: function(fileContent, path) {
+            return Uglify.minify(fileContent.toString()).code.toString();
+          }
         }
       ]
     }),
